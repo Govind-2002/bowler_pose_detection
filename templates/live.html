@@ -1,0 +1,54 @@
+<!-- templates/live.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #1a1a1a;
+            color: white;
+        }
+        #videoFeed {
+            width: 800px;
+            margin-top: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .back-btn {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 0.5rem 1rem;
+            background: #1a73e8;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-btn" onclick="window.location='/'">← Back</button>
+    <img id="videoFeed" src="{{ url_for('video_feed') }}">
+    
+    <script>
+        // Auto-reconnect if video feed disconnects
+        const videoFeed = document.getElementById('videoFeed');
+        let retries = 0;
+        
+        videoFeed.onerror = function() {
+            if(retries < 5) {
+                setTimeout(() => {
+                    videoFeed.src = "{{ url_for('video_feed') }}?t=" + Date.now();
+                    retries++;
+                }, 1000);
+            }
+        };
+    </script>
+</body>
+</html>

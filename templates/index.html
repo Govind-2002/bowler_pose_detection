@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bowling Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Bowling Action Analyzer</h1>
+        <a href="/live" class="button">Start Webcam Analysis</a>
+        
+        <div class="upload-form">
+            <h2>Or Upload a Video</h2>
+            <form action="/upload" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" id="file" accept=".mp4,.avi,.mov,.mkv" required>
+                <button type="submit" class="button">Analyze Video</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

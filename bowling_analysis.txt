@@ -1,0 +1,17 @@
+Bowling Action Analysis Report
+=============================
+Total Deliveries: 2
+Legal Deliveries: 0
+Illegal Deliveries: 2
+No Balls: 2
+Average Elbow Angle: 103.0°
+
+Delivery 1:
+Status: ILLEGAL
+Elbow Angle: 142.8°
+No Ball: Yes
+
+Delivery 2:
+Status: ILLEGAL
+Elbow Angle: 63.1°
+No Ball: Yes
